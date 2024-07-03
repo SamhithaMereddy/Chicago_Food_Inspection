@@ -1,0 +1,282 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2022.3">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="474" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="DateTimeNow()" field="DI_CreateDate" size="16777216" type="V_WString" />
+            <FormulaField expression="[Engine.WorkflowFileName]" field="DI_CreateWorkFlowChicago" size="1073741823" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>DI_CreateDate = DateTimeNow()
+DI_CreateWorkFlowChicago = [Engine.WorkflowFileNam...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.RecordID.RecordID">
+        <Position x="594" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FieldName>ViolationComment</FieldName>
+          <StartValue>1</StartValue>
+          <FieldType>Int32</FieldType>
+          <FieldSize>6</FieldSize>
+          <Position>0</Position>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRecordID" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="678" y="30" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\Users\jfird\AppData\Local\Temp\Engine_20892_ecb8ae497662a646951ca355b8401b89_\Engine_20892_533f30df17bb7f488ab872f7bcadadcf~.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Profile</DefaultTab>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="726" y="102" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File MaxRecords="" FileFormat="23">aka:ZURI\SQLEXPRESS|||FCT_Chicago_FoodInspections_Violations</File>
+          <Passwords />
+          <Disable>False</Disable>
+          <FormatSpecificOptions>
+            <TransactionMessages>False</TransactionMessages>
+            <Geometry>True</Geometry>
+            <Projection />
+            <IgnoreDropTableSQLErrors>False</IgnoreDropTableSQLErrors>
+            <SpatialObjSize>8000</SpatialObjSize>
+            <OutputOption>Overwrite</OutputOption>
+            <PostSQL />
+            <TransactionSize>10000</TransactionSize>
+            <TableStyle>Quoted</TableStyle>
+            <PreSQL />
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>aka:ZURI\SQLEXPRESS
+Query=FCT_Chicago_FoodInspections_...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="66" y="66" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <CachedCosmeticName />
+          <File FileFormat="23" RecordLimit="">aka:ZURI\SQLEXPRESS|||select Chicago_FI.[Inspection ID],
+	Chicago_FI.[Inspection Date],
+	Dim_Chicago_Restaurants.RestaurantSK,
+	Dim_Chicago_BusinessLicenses.[LICENSE NUMBER],
+	Dim_Chicago_BusinessLicenses.LicenseSK,
+	Dim_Chicago_Geo.GeoSK,
+	Dim_Chicago_FacilityType.FacilitySK,
+	Dim_Chicago_FoodInspectionType.InspectionTypeSK,
+	Dim_Chicago_FoodRiskCategory.RiskSK,
+	Chicago_FI.DI_CreateDate,
+	Chicago_FI.DI_WorkflowChicagoDP,
+	Dim_Chicago_ViolationsCodes_SCD.VisolationSK 
+from Dim_Chicago_Geo, Dim_Chicago_FoodRiskCategory, Dim_Chicago_FoodInspectionType, Dim_Chicago_FoodInspectionsResults, Dim_Chicago_BusinessLicenses, Dim_Chicago_Restaurants, Chicago_FI, Dim_Chicago_FacilityType, Dim_Chicago_ViolationsCodes_SCD</File>
+          <FormatSpecificOptions>
+            <SingleRowFetch>False</SingleRowFetch>
+            <ReadCentroids>False</ReadCentroids>
+            <TableStyle>Quoted</TableStyle>
+            <CacheData>False</CacheData>
+            <SessionReadOnly>True</SessionReadOnly>
+            <ReadUncommitted>False</ReadUncommitted>
+            <NoProgress>True</NoProgress>
+            <PostSQL />
+            <PreSQLOnConfig>True</PreSQLOnConfig>
+            <PreSQL />
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>aka:ZURI\SQLEXPRESS
+Query=select Chicago_FI.[Inspectio...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Inspection ID" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=Chicago;SERVER=ZURI\SQLEXPRESS;Trusted_Connection=yes|||select Chicago_FI.[Inspection ID],&#xA;	Chicago_FI.[Inspection Date],&#xA;	Dim_Chicago_Restaurants.RestaurantSK,&#xA;	Dim_Chicago_BusinessLicenses.[LICENSE NUMBER],&#xA;	Dim_Chicago_BusinessLicenses.LicenseSK,&#xA;	Dim_Chicago_Geo.GeoSK,&#xA;	Dim_Chicago_FacilityType.FacilitySK,&#xA;	Dim_Chicago_FoodInspectionType.InspectionTypeSK,&#xA;	Dim_Chicago_FoodRiskCategory.RiskSK,&#xA;	Chicago_FI.DI_CreateDate,&#xA;	Chicago_FI.DI_WorkflowChicagoDP,&#xA;	Dim_Chicago_ViolationsCodes_SCD.VisolationSK &#xA;from Dim_Chicago_Geo, Dim_Chicago_FoodRiskCategory, Dim_Chicago_FoodInspectionType, Dim_Chicago_FoodInspectionsResults, Dim_Chicago_BusinessLicenses, Dim_Chicago_Restaurants, Chicago_FI, Dim_Chicago_FacilityType, Dim_Chicago_ViolationsCodes_SCD" type="Int32" />
+            <Field name="Inspection Date" size="10" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=Chicago;SERVER=ZURI\SQLEXPRESS;Trusted_Connection=yes|||select Chicago_FI.[Inspection ID],&#xA;	Chicago_FI.[Inspection Date],&#xA;	Dim_Chicago_Restaurants.RestaurantSK,&#xA;	Dim_Chicago_BusinessLicenses.[LICENSE NUMBER],&#xA;	Dim_Chicago_BusinessLicenses.LicenseSK,&#xA;	Dim_Chicago_Geo.GeoSK,&#xA;	Dim_Chicago_FacilityType.FacilitySK,&#xA;	Dim_Chicago_FoodInspectionType.InspectionTypeSK,&#xA;	Dim_Chicago_FoodRiskCategory.RiskSK,&#xA;	Chicago_FI.DI_CreateDate,&#xA;	Chicago_FI.DI_WorkflowChicagoDP,&#xA;	Dim_Chicago_ViolationsCodes_SCD.VisolationSK &#xA;from Dim_Chicago_Geo, Dim_Chicago_FoodRiskCategory, Dim_Chicago_FoodInspectionType, Dim_Chicago_FoodInspectionsResults, Dim_Chicago_BusinessLicenses, Dim_Chicago_Restaurants, Chicago_FI, Dim_Chicago_FacilityType, Dim_Chicago_ViolationsCodes_SCD" type="String" />
+            <Field name="RestaurantSK" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=Chicago;SERVER=ZURI\SQLEXPRESS;Trusted_Connection=yes|||select Chicago_FI.[Inspection ID],&#xA;	Chicago_FI.[Inspection Date],&#xA;	Dim_Chicago_Restaurants.RestaurantSK,&#xA;	Dim_Chicago_BusinessLicenses.[LICENSE NUMBER],&#xA;	Dim_Chicago_BusinessLicenses.LicenseSK,&#xA;	Dim_Chicago_Geo.GeoSK,&#xA;	Dim_Chicago_FacilityType.FacilitySK,&#xA;	Dim_Chicago_FoodInspectionType.InspectionTypeSK,&#xA;	Dim_Chicago_FoodRiskCategory.RiskSK,&#xA;	Chicago_FI.DI_CreateDate,&#xA;	Chicago_FI.DI_WorkflowChicagoDP,&#xA;	Dim_Chicago_ViolationsCodes_SCD.VisolationSK &#xA;from Dim_Chicago_Geo, Dim_Chicago_FoodRiskCategory, Dim_Chicago_FoodInspectionType, Dim_Chicago_FoodInspectionsResults, Dim_Chicago_BusinessLicenses, Dim_Chicago_Restaurants, Chicago_FI, Dim_Chicago_FacilityType, Dim_Chicago_ViolationsCodes_SCD" type="Int32" />
+            <Field name="LICENSE NUMBER" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=Chicago;SERVER=ZURI\SQLEXPRESS;Trusted_Connection=yes|||select Chicago_FI.[Inspection ID],&#xA;	Chicago_FI.[Inspection Date],&#xA;	Dim_Chicago_Restaurants.RestaurantSK,&#xA;	Dim_Chicago_BusinessLicenses.[LICENSE NUMBER],&#xA;	Dim_Chicago_BusinessLicenses.LicenseSK,&#xA;	Dim_Chicago_Geo.GeoSK,&#xA;	Dim_Chicago_FacilityType.FacilitySK,&#xA;	Dim_Chicago_FoodInspectionType.InspectionTypeSK,&#xA;	Dim_Chicago_FoodRiskCategory.RiskSK,&#xA;	Chicago_FI.DI_CreateDate,&#xA;	Chicago_FI.DI_WorkflowChicagoDP,&#xA;	Dim_Chicago_ViolationsCodes_SCD.VisolationSK &#xA;from Dim_Chicago_Geo, Dim_Chicago_FoodRiskCategory, Dim_Chicago_FoodInspectionType, Dim_Chicago_FoodInspectionsResults, Dim_Chicago_BusinessLicenses, Dim_Chicago_Restaurants, Chicago_FI, Dim_Chicago_FacilityType, Dim_Chicago_ViolationsCodes_SCD" type="Int32" />
+            <Field name="LicenseSK" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=Chicago;SERVER=ZURI\SQLEXPRESS;Trusted_Connection=yes|||select Chicago_FI.[Inspection ID],&#xA;	Chicago_FI.[Inspection Date],&#xA;	Dim_Chicago_Restaurants.RestaurantSK,&#xA;	Dim_Chicago_BusinessLicenses.[LICENSE NUMBER],&#xA;	Dim_Chicago_BusinessLicenses.LicenseSK,&#xA;	Dim_Chicago_Geo.GeoSK,&#xA;	Dim_Chicago_FacilityType.FacilitySK,&#xA;	Dim_Chicago_FoodInspectionType.InspectionTypeSK,&#xA;	Dim_Chicago_FoodRiskCategory.RiskSK,&#xA;	Chicago_FI.DI_CreateDate,&#xA;	Chicago_FI.DI_WorkflowChicagoDP,&#xA;	Dim_Chicago_ViolationsCodes_SCD.VisolationSK &#xA;from Dim_Chicago_Geo, Dim_Chicago_FoodRiskCategory, Dim_Chicago_FoodInspectionType, Dim_Chicago_FoodInspectionsResults, Dim_Chicago_BusinessLicenses, Dim_Chicago_Restaurants, Chicago_FI, Dim_Chicago_FacilityType, Dim_Chicago_ViolationsCodes_SCD" type="Int32" />
+            <Field name="GeoSK" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=Chicago;SERVER=ZURI\SQLEXPRESS;Trusted_Connection=yes|||select Chicago_FI.[Inspection ID],&#xA;	Chicago_FI.[Inspection Date],&#xA;	Dim_Chicago_Restaurants.RestaurantSK,&#xA;	Dim_Chicago_BusinessLicenses.[LICENSE NUMBER],&#xA;	Dim_Chicago_BusinessLicenses.LicenseSK,&#xA;	Dim_Chicago_Geo.GeoSK,&#xA;	Dim_Chicago_FacilityType.FacilitySK,&#xA;	Dim_Chicago_FoodInspectionType.InspectionTypeSK,&#xA;	Dim_Chicago_FoodRiskCategory.RiskSK,&#xA;	Chicago_FI.DI_CreateDate,&#xA;	Chicago_FI.DI_WorkflowChicagoDP,&#xA;	Dim_Chicago_ViolationsCodes_SCD.VisolationSK &#xA;from Dim_Chicago_Geo, Dim_Chicago_FoodRiskCategory, Dim_Chicago_FoodInspectionType, Dim_Chicago_FoodInspectionsResults, Dim_Chicago_BusinessLicenses, Dim_Chicago_Restaurants, Chicago_FI, Dim_Chicago_FacilityType, Dim_Chicago_ViolationsCodes_SCD" type="Int32" />
+            <Field name="FacilitySK" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=Chicago;SERVER=ZURI\SQLEXPRESS;Trusted_Connection=yes|||select Chicago_FI.[Inspection ID],&#xA;	Chicago_FI.[Inspection Date],&#xA;	Dim_Chicago_Restaurants.RestaurantSK,&#xA;	Dim_Chicago_BusinessLicenses.[LICENSE NUMBER],&#xA;	Dim_Chicago_BusinessLicenses.LicenseSK,&#xA;	Dim_Chicago_Geo.GeoSK,&#xA;	Dim_Chicago_FacilityType.FacilitySK,&#xA;	Dim_Chicago_FoodInspectionType.InspectionTypeSK,&#xA;	Dim_Chicago_FoodRiskCategory.RiskSK,&#xA;	Chicago_FI.DI_CreateDate,&#xA;	Chicago_FI.DI_WorkflowChicagoDP,&#xA;	Dim_Chicago_ViolationsCodes_SCD.VisolationSK &#xA;from Dim_Chicago_Geo, Dim_Chicago_FoodRiskCategory, Dim_Chicago_FoodInspectionType, Dim_Chicago_FoodInspectionsResults, Dim_Chicago_BusinessLicenses, Dim_Chicago_Restaurants, Chicago_FI, Dim_Chicago_FacilityType, Dim_Chicago_ViolationsCodes_SCD" type="Int32" />
+            <Field name="InspectionTypeSK" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=Chicago;SERVER=ZURI\SQLEXPRESS;Trusted_Connection=yes|||select Chicago_FI.[Inspection ID],&#xA;	Chicago_FI.[Inspection Date],&#xA;	Dim_Chicago_Restaurants.RestaurantSK,&#xA;	Dim_Chicago_BusinessLicenses.[LICENSE NUMBER],&#xA;	Dim_Chicago_BusinessLicenses.LicenseSK,&#xA;	Dim_Chicago_Geo.GeoSK,&#xA;	Dim_Chicago_FacilityType.FacilitySK,&#xA;	Dim_Chicago_FoodInspectionType.InspectionTypeSK,&#xA;	Dim_Chicago_FoodRiskCategory.RiskSK,&#xA;	Chicago_FI.DI_CreateDate,&#xA;	Chicago_FI.DI_WorkflowChicagoDP,&#xA;	Dim_Chicago_ViolationsCodes_SCD.VisolationSK &#xA;from Dim_Chicago_Geo, Dim_Chicago_FoodRiskCategory, Dim_Chicago_FoodInspectionType, Dim_Chicago_FoodInspectionsResults, Dim_Chicago_BusinessLicenses, Dim_Chicago_Restaurants, Chicago_FI, Dim_Chicago_FacilityType, Dim_Chicago_ViolationsCodes_SCD" type="Int32" />
+            <Field name="RiskSK" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=Chicago;SERVER=ZURI\SQLEXPRESS;Trusted_Connection=yes|||select Chicago_FI.[Inspection ID],&#xA;	Chicago_FI.[Inspection Date],&#xA;	Dim_Chicago_Restaurants.RestaurantSK,&#xA;	Dim_Chicago_BusinessLicenses.[LICENSE NUMBER],&#xA;	Dim_Chicago_BusinessLicenses.LicenseSK,&#xA;	Dim_Chicago_Geo.GeoSK,&#xA;	Dim_Chicago_FacilityType.FacilitySK,&#xA;	Dim_Chicago_FoodInspectionType.InspectionTypeSK,&#xA;	Dim_Chicago_FoodRiskCategory.RiskSK,&#xA;	Chicago_FI.DI_CreateDate,&#xA;	Chicago_FI.DI_WorkflowChicagoDP,&#xA;	Dim_Chicago_ViolationsCodes_SCD.VisolationSK &#xA;from Dim_Chicago_Geo, Dim_Chicago_FoodRiskCategory, Dim_Chicago_FoodInspectionType, Dim_Chicago_FoodInspectionsResults, Dim_Chicago_BusinessLicenses, Dim_Chicago_Restaurants, Chicago_FI, Dim_Chicago_FacilityType, Dim_Chicago_ViolationsCodes_SCD" type="Int32" />
+            <Field name="DI_CreateDate" size="16777216" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=Chicago;SERVER=ZURI\SQLEXPRESS;Trusted_Connection=yes|||select Chicago_FI.[Inspection ID],&#xA;	Chicago_FI.[Inspection Date],&#xA;	Dim_Chicago_Restaurants.RestaurantSK,&#xA;	Dim_Chicago_BusinessLicenses.[LICENSE NUMBER],&#xA;	Dim_Chicago_BusinessLicenses.LicenseSK,&#xA;	Dim_Chicago_Geo.GeoSK,&#xA;	Dim_Chicago_FacilityType.FacilitySK,&#xA;	Dim_Chicago_FoodInspectionType.InspectionTypeSK,&#xA;	Dim_Chicago_FoodRiskCategory.RiskSK,&#xA;	Chicago_FI.DI_CreateDate,&#xA;	Chicago_FI.DI_WorkflowChicagoDP,&#xA;	Dim_Chicago_ViolationsCodes_SCD.VisolationSK &#xA;from Dim_Chicago_Geo, Dim_Chicago_FoodRiskCategory, Dim_Chicago_FoodInspectionType, Dim_Chicago_FoodInspectionsResults, Dim_Chicago_BusinessLicenses, Dim_Chicago_Restaurants, Chicago_FI, Dim_Chicago_FacilityType, Dim_Chicago_ViolationsCodes_SCD" type="V_WString" />
+            <Field name="DI_WorkflowChicagoDP" size="16777216" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=Chicago;SERVER=ZURI\SQLEXPRESS;Trusted_Connection=yes|||select Chicago_FI.[Inspection ID],&#xA;	Chicago_FI.[Inspection Date],&#xA;	Dim_Chicago_Restaurants.RestaurantSK,&#xA;	Dim_Chicago_BusinessLicenses.[LICENSE NUMBER],&#xA;	Dim_Chicago_BusinessLicenses.LicenseSK,&#xA;	Dim_Chicago_Geo.GeoSK,&#xA;	Dim_Chicago_FacilityType.FacilitySK,&#xA;	Dim_Chicago_FoodInspectionType.InspectionTypeSK,&#xA;	Dim_Chicago_FoodRiskCategory.RiskSK,&#xA;	Chicago_FI.DI_CreateDate,&#xA;	Chicago_FI.DI_WorkflowChicagoDP,&#xA;	Dim_Chicago_ViolationsCodes_SCD.VisolationSK &#xA;from Dim_Chicago_Geo, Dim_Chicago_FoodRiskCategory, Dim_Chicago_FoodInspectionType, Dim_Chicago_FoodInspectionsResults, Dim_Chicago_BusinessLicenses, Dim_Chicago_Restaurants, Chicago_FI, Dim_Chicago_FacilityType, Dim_Chicago_ViolationsCodes_SCD" type="V_WString" />
+            <Field name="VisolationSK" source="File: odbc:DRIVER={ODBC Driver 17 for SQL Server};DATABASE=Chicago;SERVER=ZURI\SQLEXPRESS;Trusted_Connection=yes|||select Chicago_FI.[Inspection ID],&#xA;	Chicago_FI.[Inspection Date],&#xA;	Dim_Chicago_Restaurants.RestaurantSK,&#xA;	Dim_Chicago_BusinessLicenses.[LICENSE NUMBER],&#xA;	Dim_Chicago_BusinessLicenses.LicenseSK,&#xA;	Dim_Chicago_Geo.GeoSK,&#xA;	Dim_Chicago_FacilityType.FacilitySK,&#xA;	Dim_Chicago_FoodInspectionType.InspectionTypeSK,&#xA;	Dim_Chicago_FoodRiskCategory.RiskSK,&#xA;	Chicago_FI.DI_CreateDate,&#xA;	Chicago_FI.DI_WorkflowChicagoDP,&#xA;	Dim_Chicago_ViolationsCodes_SCD.VisolationSK &#xA;from Dim_Chicago_Geo, Dim_Chicago_FoodRiskCategory, Dim_Chicago_FoodInspectionType, Dim_Chicago_FoodInspectionsResults, Dim_Chicago_BusinessLicenses, Dim_Chicago_Restaurants, Chicago_FI, Dim_Chicago_FacilityType, Dim_Chicago_ViolationsCodes_SCD" type="Int32" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Unique.Unique">
+        <Position x="342" y="66" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UniqueFields>
+            <Field field="Inspection ID" />
+            <Field field="VisolationSK" />
+          </UniqueFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnique" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="210" y="66" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Inspection ID" selected="True" />
+            <SelectField field="VisolationSK" selected="True" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="2" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Unique" />
+      <Destination ToolID="1" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="Output" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <RunWithE2 value="True" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>Chicago_Fact2</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="45a88af1-c5de-4bb8-b58a-a80b03bd5c77" />
+      <Telemetry>
+        <PreviousWorkflowId value="cf649d2f-f740-4d5d-82f3-ef3f55c85784" />
+        <OriginWorkflowId value="cf649d2f-f740-4d5d-82f3-ef3f55c85784" />
+      </Telemetry>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
